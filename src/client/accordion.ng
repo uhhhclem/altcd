@@ -1,0 +1,23 @@
+<accordion-group is-open="n.open">
+  <accordion-heading>
+    <div ng-click="main.click(n)">
+      {{n.displayName}}
+      <i class="pull-right glyphicon" 
+         ng-if="n.childUrl != null"
+         ng-class="{'glyphicon-chevron-down': n.open, 'glyphicon-chevron-right': !n.open}">
+      </i>
+    </div>
+  </accordion-heading>
+  <accordion>
+    <div ng-repeat="n in n.internalChildNodes"> 
+      <div ng-include="'accordion.ng'"></div>
+    </div>
+  </accordion>
+  <ul class="list-unstyled">
+    <li ng-repeat="n in n.leafChildNodes">
+      <div ng-click="main.click(n)">
+        {{n.displayName}}
+      </div>
+    </li>
+  </ul>
+</accordion-group> 

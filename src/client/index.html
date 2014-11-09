@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="cd">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Curator Desktop</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css"/>
+    <link rel="stylesheet" href="style.css" />
+    <script data-require="angular.js@1.2.x" src="https://code.angularjs.org/1.2.25/angular.js" data-semver="1.2.25"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl as main">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <accordion>
+            <div ng-repeat="n in main.nodes()">  
+              <div ng-include="'accordion.ng'"></div>
+            </div>
+          </accordion>
+        </div>
+        <div class="col-lg-8" ng-include="main.activeNode().templateUrl"></div>
+      </div>
+    </div>
+    
+  </body>
+
+</html>
